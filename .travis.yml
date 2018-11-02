@@ -5,5 +5,7 @@ script: mvn test -B
 services: 
   - docker
 after_success:
-  - sh docker_hub.sh
+  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASSWORD
+  - docker build -f Dockerfile -t $TRAVIS_REPO_SLUG .
+  - docker push $TRAVIS_REPO_SLUG
   - test “$TRAVIS_BRANCH” = “master” && sh heroku.sh
