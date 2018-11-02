@@ -1,10 +1,14 @@
 sudo: required
 language: java
 before_install: 
-  - chmod +x mvnw
+  - docker build -t shchipunov/iot-platform .
 script: mvn test -B
 services: 
   - docker
+deploy:
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master
 after_success:
-  - sh docker_hub.sh
   - test “$TRAVIS_BRANCH” = “master” && sh heroku.sh

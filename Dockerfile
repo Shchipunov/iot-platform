@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM java:8
 VOLUME /tmp
 VOLUME /opt/iot-platform
 ADD app.jar /opt/iot-platform/app.jar
