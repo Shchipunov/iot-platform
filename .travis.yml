@@ -1,3 +1,7 @@
 language: java
 before_install: chmod +x mvnw
 script: mvn test -B
+deploy:
+  provider: heroku
+  app: test-iot-platform
+  api_key: 1f95c29b-3d12-46cb-bf47-96ce5c0df8d3
