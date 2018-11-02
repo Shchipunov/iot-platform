@@ -1,11 +1,10 @@
 sudo: required
 language: java
-before_install: chmod +x mvnw
+before_install: 
+  - chmod +x mvnw
 script: mvn test -B
 services: 
   - docker
 after_success:
-  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASSWORD
-  - docker build -f Dockerfile -t $TRAVIS_REPO_SLUG .
-  - docker push $TRAVIS_REPO_SLUG
+  - sh docker_hub.sh
   - test “$TRAVIS_BRANCH” = “master” && sh heroku.sh
