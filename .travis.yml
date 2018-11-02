@@ -12,5 +12,5 @@ deploy:
   script: bash docker_push
   on:
     branch: master
-after_success:
+after_deploy:
   - test “$TRAVIS_BRANCH” = “master” && sh heroku.sh
