@@ -61,7 +61,7 @@
 				<version>1.4.8</version>
 				<configuration>
 					<imageName>shchipunov/${project.artifactId}</imageName>
-					<dockerDirectory>src/main/resources</dockerDirectory>
+					<dockerDirectory>/</dockerDirectory>
 					<resources>
 						<resource>
 							<targetPath>/</targetPath>
