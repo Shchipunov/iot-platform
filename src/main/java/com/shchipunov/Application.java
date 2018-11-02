@@ -25,7 +25,7 @@ class RequestHandler {
 	@Bean
 	RouterFunction<ServerResponse> routes() {
 		return route(GET("/users/{name}"), request -> {
-			return ServerResponse.ok().body(BodyInserters.fromObject("Hello " + request.pathVariable("name")));
+			return ServerResponse.ok().body(BodyInserters.fromObject("Hello " + request.pathVariable("name") + "!"));
 		});
 	}
 }
