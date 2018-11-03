@@ -58,14 +58,10 @@
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
-				<version>0.4.13</version>
+				<version>0.4.3</version>
 				<configuration>
-					<imageName>shchipunov</imageName>
-					<entryPoint>["sh", "-c", "java
-						-Djava.security.egd=file:/dev/./urandom -jar
-						/${project.build.finalName}.jar
-						--spring.profiles.active=${spring.profile}"]
-					</entryPoint>
+					<imageName>shchipunov/iot-platform</imageName>
+					<dockerDirectory>/</dockerDirectory>
 					<resources>
 						<resource>
 							<targetPath>/</targetPath>
@@ -77,6 +73,7 @@
 						<imageTag>${project.version}</imageTag>
 						<imageTag>latest</imageTag>
 					</imageTags>
+					<forceTags>true</forceTags>
 				</configuration>
 			</plugin>
 		</plugins>

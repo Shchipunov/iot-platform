@@ -1,14 +1,13 @@
 sudo: required
 language: java
+install: true
 before_install: 
   - chmod +x mvnw
-script: mvn test -B
+script: mvn package
 services: 
   - docker
-deploy:
-  provider: script
-  script: bash docker_push
-  on:
-    branch: master
-after_deploy:
+after_success:
+  - mvn docker:build
+  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASSWORD
+  - docker push shchipunov/iot-platform
   - test “$TRAVIS_BRANCH” = “master” && sh heroku.sh
