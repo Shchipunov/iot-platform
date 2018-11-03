@@ -10,5 +10,5 @@ after_success:
   - echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com
   - docker build -t registry.heroku.com/test-iot-platform/web -f Dockerfile .
   - heroku container:login
-  - heroku container:push web
+  - heroku container:push web --app=test-iot-platform
   - heroku container:release web --app=test-iot-platform
