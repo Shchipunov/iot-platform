@@ -61,7 +61,7 @@
 				<version>1.2.0</version>
 				<configuration>
 					<imageName>shchipunov/iot-platform</imageName>
-					<dockerDirectory>.</dockerDirectory>
+					<dockerDirectory>/</dockerDirectory>
 					<resources>
 						<resource>
 							<targetPath>/</targetPath>
