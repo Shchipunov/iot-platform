@@ -5,7 +5,6 @@ before_install:
 script: mvn test -B
 services: 
   - docker
-before_deploy: docker build -f Dockerfile -t shchipunov/iot-platform .
 deploy:
   provider: script
   script: bash docker_push

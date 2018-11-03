@@ -57,19 +57,15 @@
 
 			<plugin>
 				<groupId>com.spotify</groupId>
-				<artifactId>dockerfile-maven-plugin</artifactId>
-				<version>1.4.8</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>build</goal>
-						</goals>
-					</execution>
-				</executions>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.4.13</version>
 				<configuration>
-					<imageName>shchipunov/${project.artifactId}</imageName>
-					<dockerDirectory>/</dockerDirectory>
+					<imageName>shchipunov</imageName>
+					<entryPoint>["sh", "-c", "java
+						-Djava.security.egd=file:/dev/./urandom -jar
+						/${project.build.finalName}.jar
+						--spring.profiles.active=${spring.profile}"]
+					</entryPoint>
 					<resources>
 						<resource>
 							<targetPath>/</targetPath>
@@ -77,6 +73,10 @@
 							<include>${project.build.finalName}.jar</include>
 						</resource>
 					</resources>
+					<imageTags>
+						<imageTag>${project.version}</imageTag>
+						<imageTag>latest</imageTag>
+					</imageTags>
 				</configuration>
 			</plugin>
 		</plugins>
