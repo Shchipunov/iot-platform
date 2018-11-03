@@ -1,5 +1,4 @@
 #!/bin/bash
-wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-heroku plugins:install heroku-container-registry
 docker login -u _ --password=$HEROKU_API_KEY registry.heroku.com
-heroku container:push web --app $HEROKU_APPLICATION
+docker tag shchipunov/iot-platform registry.heroku.com/test-iot-platform
+docker push registry.heroku.com/test-iot-platform
