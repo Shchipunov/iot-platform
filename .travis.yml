@@ -7,7 +7,5 @@ script: mvn package
 services: 
   - docker
 after_success:
-  - mvn docker:build
-  - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-  - docker push shchipunov/iot-platform
+
   - test “$TRAVIS_BRANCH” = “master” && sh heroku.sh
