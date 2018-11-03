@@ -5,7 +5,7 @@ before_install:
 script: mvn test -B
 services: 
   - docker
-before_deploy: mvn docker:build
+before_deploy: mvn package docker:build
 deploy:
   provider: script
   script: bash docker_push
