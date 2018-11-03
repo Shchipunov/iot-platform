@@ -3,7 +3,7 @@ language: java
 before_install: 
   - chmod +x mvnw
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
 script: mvn package
 services: 
   - docker
