@@ -13,6 +13,6 @@ deploy:
   provider: script
   script:
     docker push registry.heroku.com/test-iot-platform/web
-    heroku container:release web
+    heroku container:release web --app $HEROKU_APPLICATION
   on:
     branch: master
