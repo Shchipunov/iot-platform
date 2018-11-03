@@ -69,11 +69,11 @@
 							<include>${project.build.finalName}.jar</include>
 						</resource>
 					</resources>
-					<imageTags>
+					<!-- <imageTags>
 						<imageTag>${project.version}</imageTag>
 						<imageTag>latest</imageTag>
 					</imageTags>
-					<forceTags>true</forceTags>
+					<forceTags>true</forceTags> -->
 				</configuration>
 			</plugin>
 		</plugins>
