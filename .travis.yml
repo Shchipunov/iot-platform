@@ -11,4 +11,5 @@ services:
 after_success:
   - docker build -t registry.heroku.com/test-iot-platform/web -f Dockerfile .
   - docker push registry.heroku.com/test-iot-platform/web
+  - docker ps -a
   - heroku container:release web --app test-iot-platform
