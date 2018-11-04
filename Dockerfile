@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM openjdk:8-jdk-slim
 VOLUME /tmp
 ADD target/iot-platform-0.0.1-SNAPSHOT.jar application.jar
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/application.jar"]
