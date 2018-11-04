@@ -3,12 +3,12 @@ language: java
 before_install: 
   - chmod +x mvnw
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh
-#  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
-#  - echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
+  - echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com
 script: mvn package
 services: 
   - docker
 after_success:
   - docker build -t registry.heroku.com/test-iot-platform/web -f Dockerfile .
   - docker push registry.heroku.com/test-iot-platform/web
-  - heroku container:release web --app=test-iot-platform
+  - heroku container:release web --app test-iot-platform
