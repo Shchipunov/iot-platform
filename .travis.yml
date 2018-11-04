@@ -10,6 +10,7 @@ services:
   - docker
 after_success:
   - docker build -t registry.heroku.com/test-iot-platform/web -f Dockerfile .
+  - docker build -t shchipunov/iot-platform -f Dockerfile .
   - docker run --rm -it -p 8080:8080 shchipunov/iot-platform
   - docker push registry.heroku.com/test-iot-platform/web
   - heroku container:release web --app test-iot-platform
