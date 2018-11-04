@@ -1,5 +1,4 @@
-FROM openjdk:8-jdk-alpine
-VOLUME /tmp
-ADD target/iot-platform-0.0.1-SNAPSHOT.jar application.jar
+FROM alpine-jdk:base
+ADD target/iot-platform-0.0.1-SNAPSHOT.jar /opt/lib/application.jar
 ENTRYPOINT ["/usr/bin/java"]
-CMD ["java","-jar","/application.jar"]
+ENTRYPOINT ["java", "-jar","/opt/lib/application.jar"]
