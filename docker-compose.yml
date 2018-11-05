@@ -5,4 +5,4 @@ services:
     ports:
       - 2181:2181
   web:
-    image: shchipunov/iot-platform
+    image: registry.heroku.com/test-iot-platform/web
